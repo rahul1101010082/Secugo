@@ -75,6 +75,8 @@ $(document).ready(function() {
         event.unbind(); //unbind. to stop multiple form submit.
     });
 });
+<<<<<<< HEAD
+=======
 
 /*
  * Notifications
@@ -120,3 +122,4 @@ function notify(message, type){
     });
 }
 
+>>>>>>> master

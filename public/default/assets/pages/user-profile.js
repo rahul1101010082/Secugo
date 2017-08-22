@@ -94,7 +94,6 @@ $(document).ready(function() {
         c.addClass('icofont-edit');
         $('.view-info').show();
         $('.edit-info').hide();
-
     });
 
     $('.edit-info').hide();
@@ -127,6 +126,7 @@ $(document).ready(function() {
             $('#del-btn').show();
         }
     });
+
 
     //check editor js
     CKEDITOR.replace('description', {

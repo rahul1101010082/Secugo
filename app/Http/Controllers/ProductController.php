@@ -16,25 +16,22 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {    
-        $name =Input::get('name');
+      
+
+        $name = Input::get ( 'name' );;
 
         if (!empty($name)) {
-            $products=Product::all()->where('name', $name);
+            $products=Product::where('name','LIKE','%' . $name . '%')->get();
         }
         else{
              $products = Product::all();
         }
-        
 
-        $rate=Product::sum('price');
+        $sum=Product::sum('price');
 
-        return view('product.index',compact('products','rate'));
-
-       
-      
-     
+        return view('product.index',compact('products','sum'));
     }
 
     /**
@@ -88,7 +85,12 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+      
+      
+        $products = Product::where('id',$product->id)->first();
+
+        return view('product.edit', compact('products'));
+
     }
 
     /**
@@ -97,10 +99,20 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
-     */
+     */   
     public function update(Request $request, Product $product)
     {
-        //
+            $input = $request->all();
+
+            $product->update([
+                'name'  =>  $input['name'],
+                'price'  =>  $input['price'],
+                'description'  =>  $input['description']
+
+            ]);
+
+            return redirect()->route('product.index');
+
     }
 
     /**
@@ -111,6 +123,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        
     }
 }
