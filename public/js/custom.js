@@ -36,7 +36,7 @@ $(document).ready(function() {
         $(this).parent().parent().remove();
 
         if (parent.find('.copy').length > 1 && parent.find('.copy:last').find('.removeFieldSet').length == 0) {
-            parent.find('.copy:last').append('<div class="removeFieldSet col-md-12 "><a href="javascript:void(0);" class="col-red icon f-right"><i class="zmdi zmdi-close-circle-o outer-ellipsis f-right"></i></span>');
+            parent.find('.copy:last').append('<div class="removeFieldSet col-md-12 m-t-15 m-l-100"><a href="javascript:void(0);" class="col-red icon f-right"><i class="zmdi zmdi-close-circle-o outer-ellipsis f-right"></i></span>');
         }
         if (parent.find('.copy').length == 0) {
             $(parent).addClass('hide');
@@ -169,6 +169,26 @@ $(document).ready(function() {
         }
     });
 
+
+    })
+
+
+    // Start edit/show with Delete functinality
+    $('#edit-1').on('click', function() {
+        var b = $(this).find("i");
+        var edit_class = b.attr('class');
+        if (edit_class == 'icofont icofont-edit') {
+            $('.edit-info').show();
+            $('.view-desc').hide();   
+        } else {
+            $('.edit-info').hide();
+            $('.view-desc').show();
+        }
+    });
+
+  
+    $('#cancel-1').on('click', function() {
+
     //end of discount
 
     // course edit begin
@@ -198,40 +218,40 @@ $(document).ready(function() {
     });
     // course edit end
 
+    $('#id1').on('click', function() {
+        var b = $(this).find("i");
+        var edit_class = b.attr('class');
+        if (edit_class == 'nav-link') {
+            $('.view-1').show();   
+        } else {
+            $('.view-1').show();
+        }   
+    });
 
-    $('#edit-1').on('click', function() {
+    $('#id2').on('click', function() {
         var b = $(this).find("i");
         var edit_class = b.attr('class');
-        if (edit_class == 'icofont icofont-edit') {
-            $('.edit-info').show();
-            $('.view-desc').hide();
+        if (edit_class == 'nav-link') {
+            $('.view-1').show();   
         } else {
-            $('.edit-info').hide();
-            $('.view-desc').show();
-        }
+            $('.view-1').hide();
+        }   
     });
-    $('.edit-info' +
-        '').hide();
-    $('#edit-2').on('click', function() {
-        var b = $(this).find("i");
-        var edit_class = b.attr('class');
-        if (edit_class == 'icofont icofont-edit') {
-            $('.edit-info').show();
-            $('.view-desc').hide();
-        } else {
-            $('.edit-info').hide();
-            $('.view-desc').show();
-        }
+
+   
+
+
+});
+
+
+$(document).ready(function() {
+
+    $('#hide').hide();
+
+    $('#show').on('click', function() {
+         $('#hide').show();
+
     });
-    $('#cancel-1').on('click', function() {
-        var b = $(this).find("i");
-        var edit_class = b.attr('class');
-        if (edit_class == 'icofont icofont-edit') {
-            $('.edit-info').show();
-            $('.view-desc').hide();
-        } else {
-            $('.edit-info').hide();
-            $('.view-desc').show();
-        }
-    });
+
+   
 });
